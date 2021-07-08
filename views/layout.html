@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>포트폴리오 사이트</div>
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+  {% block script %} {% endblock %}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</html>

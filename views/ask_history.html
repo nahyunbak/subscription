@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% block content %}
+
+<form id="ask-history" action="/ask/option" method="post">
+    <label for="ask-history__email-input">의뢰 시 작성했던 이메일을 입력해주세요</label>
+    <input id="ask-history__email-input" type="text" name="email" required/>
+    <button type="submit" class="ask-history__submit">제출</button>
+</form>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+{% endblock %}

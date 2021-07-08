@@ -1,0 +1,56 @@
+{% extends 'layout.html' %} {% block content %}
+<div><a>포트폴리오1</a></div>
+<div><a>포트폴리오2</a></div>
+<div><a>포트폴리오3</a></div>
+<div><a>포트폴리오4</a></div>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+if (document.getElementById('img')) {
+      document.getElementById('img').addEventListener('change', function(e) {
+        const formData = new FormData();
+        console.log(this, this.files);
+        formData.append('img', this.files[0]);
+        axios.post('/post/img', formData)
+          .then((res) => {
+            document.getElementById('img-url').value = res.data.url;
+            document.getElementById('img-preview').src = res.data.url;
+            document.getElementById('img-preview').style.display = 'inline';
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      });
+    }
+
+
+const infoBtnCheck=document.querySelector('.info-btn__check');
+infoBtnCheck.addEventListener('click', function() {
+        
+              axios.get(`/user/${userId}/follow`)
+                .then(() => {
+                  location.reload();
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }
+          }
+        }
+      });
+    });
+
+
+  (async () => {
+    try {
+      const result = await axios.get('/change');
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %} {% block content %}
+<div>{{title}}</div>
+<form id="ask-form" action="/ask/form" method="post">
+  <label for="ask-form__name-input">성함을 적어주세요.</label>
+  <input id="ask-form__name-input" type="text" name="name" required />
+  <label for="ask-form__company-input">회사 이름을 적어주세요.</label>
+  <input id="ask-form__company-input" type="text" name="company" />
+  <label for="ask-form__email-input">이메일을 적어주세요.</label>
+  <input id="ask-form__email-input" type="email" name="email" required />
+  <label for="ask-form__phone-input">전화번호를 적어주세요</label>
+  <input id="ask-form__phone-input" type="tel" name="phone" required />
+  <label for="ask-form__detail-input">구체적인 의뢰 내용을 적어주세요</label>
+  <input id="ask-form__detail-input" type="text" name="detail" />
+  <button type="submit" class="ask-form__submit">제출</button>
+</form>
+{% endblock %} {% block script %}
+<script>
+  (async () => {
+    try {
+      const result = await axios.get("/ask");
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+</script>
+{% endblock %}

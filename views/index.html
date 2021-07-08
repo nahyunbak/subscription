@@ -1,0 +1,29 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div>진행하고 싶은 작업을 선택해 주세요.</div>
+
+<form id="hashtag-form" action="/ask/form" method="get">
+  <button type="submit">의뢰하기</button>
+</form>
+
+<form id="hashtag-form" action="/ask/history" method="get">
+  <button type="submit">의뢰 확인, 삭제, 수정</button>
+</form>
+<form id="hashtag-form" action="/portfolio" method="get">
+  <button type="submit">포트폴리오 확인</button>
+</form>
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+  (async () => {
+    try {
+      const result = await axios.get('/');
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+</script>
+{% endblock %}
